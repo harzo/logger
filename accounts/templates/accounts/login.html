@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/css/login.css' %}" />
+
+    <div class="row">
+        <div class="large-12">
+            <span id="welcome">Witaj. Zaloguj się!</span>
+        </div>
+    </div>
+    {% if error %}
+        <div class="row error">
+            <div class="large-12">
+                <p>{{ error }}</p>
+            </div>
+        </div>
+    {% endif %}
+    <form id="loginform" method="post" action="{% url 'accounts.views.login_user' %}">
+    {% csrf_token %}
+    <div class="row">
+        <div class="large-5 large-centered columns">
+            <div class="row">
+                <div class="small-12 medium-4 large-4 columns">
+                    <label class="right inline show-for-large-up">Login</label>
+                    <label class="hide-for-large-up">Login</label>
+                </div>
+                <div class="small-12 medium-8 large-8 columns">
+                  {{ form.username }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 medium-4 large-4 columns">
+                    <label class="right inline show-for-large-up">Hasło</label>
+                    <label class="hide-for-large-up">Hasło</label>
+                </div>
+                <div class="small-12 medium-8 large-8 columns">
+                  {{ form.password }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-6 large-centered columns text-centered">
+            <button type="submit" name="submit" id="button">Zaloguj się</button>
+            <input type="hidden" name="next" value="{{ next }}" />
+        </div>
+    </div>
+    </form>
+{% endblock %}
+
+{% block footer %}
+    <a href="#" id="password">Zapomniałem hasła</a>
+{% endblock %}

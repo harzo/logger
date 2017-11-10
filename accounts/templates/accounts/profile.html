@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% load staticfiles %}
+        {% load accounts_extras %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'accounts/css/profile.css' %}" />
+
+        <div class="row">
+            <div class="large-12">
+                <span id="welcome">Witaj, </span><span id="name">{{ user.first_name }}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="large-8 large-centered columns text-centered">
+                <ul class="main-menu medium-block-grid-3 large-block-grid-3">
+                {% if todays_log %}
+                    <li>
+                        <a href="#" data-tooltip aria-haspopup="true" class="has-tip" title="Dzisiejszy wpis został już wprowadzony przez Ciebie, dziękujemy.<br /> Jeżeli chcesz go zobaczyć przejdź do sekcji Podsumowanie.">Dodaj wpis</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="/logme">Dodaj wpis</a>
+                    </li>
+                {% endif %}
+                    <li>
+                        <a href="/summary">Podsumowanie</a>
+                    </li>
+                    <li>
+                        <a href="/settings">Ustawienia</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {% if user|has_group:"Employer" or user.is_superuser %}
+        <br/>
+        <div class="row">
+            <div class="large-8 large-centered columns text-centered">
+                <ul class="main-menu medium-block-grid-2 large-block-grid-2">
+                    <li><a href="/report/user">Raport osobowy</a></li>
+                    <li><a href="/report/month/">Raport miesięczny</a></li>
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+        {% if user.is_superuser %}
+        <br/>
+        <div class="row">
+            <div class="large-8 large-centered columns text-centered">
+                <ul class="main-menu medium-block-grid-1 large-block-grid-1">
+                    <li><a href="/admin/">Panel administracyjny</a></li>
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+
+{% block footer %}
+    <a href="/logout" id="password">Wyloguj się</a>
+{% endblock %}

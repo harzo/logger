@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% load staticfiles %}
+        {% load settings_extras %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'settings/css/settings.css' %}" />
+        <script type="text/javascript" src="{% static 'settings/js/settings.js' %}"></script>
+
+        <div class="row">
+            <div class="large-12">
+                <span id="welcome">Ustawienia</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="infoblock" class="medium-7 medium-centered large-7 large-centered columns">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <h3>Twoje dane</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-4 large-4 columns">
+                      <label class="right inline">Imię</label>
+                    </div>
+                    <div class="medium-8 large-8 columns">
+                      <span>{{ user.first_name }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-4 large-4 columns">
+                      <label class="right inline">Nazwisko</label>
+                    </div>
+                    <div class="medium-8 large-8 columns">
+                      <span>{{ user.last_name }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-4 large-4 columns">
+                      <label class="right inline">Email</label>
+                    </div>
+                    <div class="medium-8 large-8 columns">
+                      <span>{{ user.email }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="medium-7 medium-centered large-7 large-centered columns">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <h3>Zmień hasło</h3>
+                        </div>
+                    </div>
+                    {% if error %}
+                        <div class="row error">
+                            <div class="large-12">
+                                <p>{{ error }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if success %}
+                        <div class="row success">
+                            <div class="large-12">
+                                <p>{{ success }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                <form id="passchform" action="{% url 'settings.views.settings_user' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="medium-4 large-4 columns">
+                          <label class="right inline">Stare hasło</label>
+                        </div>
+                        <div class="medium-8 large-8 columns">
+                          <span>{{ form.old_password }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-4 large-4 columns">
+                          <label class="right inline">Nowe hasło</label>
+                        </div>
+                        <div class="medium-8 large-8 columns">
+                          <span>{{ form.new_password }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-4 large-4 columns">
+                          <label class="right inline">Potwierdź hasło</label>
+                        </div>
+                        <div class="medium-8 large-8 columns">
+                          <span>{{ form.password_conf }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <input type="hidden" name="action" value="passch" />
+                            <button type="submit" name="submit" id="button">Prześlij</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="medium-7 medium-centered large-7 large-centered columns">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <h3>Planowane nieobecności w pracy</h3>
+                        </div>
+                    </div>
+                    {% if error2 %}
+                        <div class="row error">
+                            <div class="large-12">
+                                <p>{{ error2 }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if success2 %}
+                        <div class="row success">
+                            <div class="large-12">
+                                <p>{{ success2 }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                <form id="gapaddform" action="{% url 'settings.views.settings_user' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="medium-4 large-4 columns">
+                          <label class="right inline">Typ nieobecności</label>
+                        </div>
+                        <div class="medium-8 large-8 columns">
+                          <span>{{ form2.type }}</span>
+                        </div>
+                    </div>
+                    <div class="row" id="gap_weekday">
+                        <div class="medium-4 large-4 columns">
+                          <label class="right inline">Dzień tygodnia</label>
+                        </div>
+                        <div class="medium-8 large-8 columns">
+                          <span>{{ form2.week_day }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-4 large-4 columns">
+                          <label class="right inline">Data / Okres</label>
+                        </div>
+                        <div class="medium-8 large-8 columns">
+                            {{ form2.start_date }}<span id="gap_end"> - {{ form2.end_date }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <input type="hidden" name="action" value="gapadd" />
+                            <button type="submit" name="submit" id="button">Dodaj</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="medium-7 medium-centered large-7 large-centered columns">
+                <div class="row">
+                    <div class="medium-3 large-3 columns">
+                        Typ
+                    </div>
+                    <div class="medium-3 large-3 columns">
+                        Dzień tygodnia
+                    </div>
+                    <div class="medium-5 large-5 columns">
+                        Data / Okres
+                    </div>
+                    <div class="medium-1 large-1 columns">
+                        Usuń
+                    </div>
+                </div>
+                {% for gap in gaps %}
+                <div class="row" {% if gap.end_time < now %}style="color: gray"{% endif %}>
+                    <div class="medium-3 large-3 columns">
+                        {% int_to_type gap.type %}
+                    </div>
+                    <div class="medium-3 large-3 columns">
+                        {% int_to_weekday gap.week_day %}
+                    </div>
+                    <div class="medium-3 large-5 columns">
+                        {{ gap.start_time|date:"d-m-Y" }}
+                        {% if not gap.type == 2 %}
+                            do {{ gap.end_time|date:"d-m-Y" }}
+                        {% endif %}
+                    </div>
+                    <div class="medium-1 large-1 columns">
+                        <a href="/delgap/{{ gap.id }}" onclick="return confirm('Czy na pewno chcesz usunąć ten obiekt?')">X</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    <a href="/profile">Powrót</a>
+{% endblock %}

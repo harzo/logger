@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% load staticfiles %}
+        {% load logs_extras %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'logs/css/choosereportuser.css' %}" />
+
+        <div class="row">
+            <div class="large-12">
+                <span id="welcome">Wybierz użytkownika</span>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="medium-8 medium-centered large-6 large-centered columns">
+                <label class="ul-title">Pracownicy</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-8 medium-centered large-6 large-centered columns">
+                <ul id="employees" class="block-grid-3">
+                {% for employee in employees %}
+                    <li>
+                        <a href="/report/user/{{ employee.id }},{{ now|date:"n" }}">
+                            {{ employee.first_name }} {{ employee.last_name }}
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="medium-8 medium-centered large-6 large-centered columns">
+                <label class="ul-title">Praktykanci</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-8 medium-centered large-6 large-centered columns">
+                <ul id="interns" class="block-grid-3">
+                {% for intern in interns %}
+                    <li>
+                        <a href="/report/user/{{ intern.id }},{{ now|date:"n" }}">
+                            {{ intern.first_name }} {{ intern.last_name }}
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-8 medium-centered large-6 large-centered columns">
+                <label class="ul-title">Nieaktywni</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-8 medium-centered large-6 large-centered columns">
+                <ul id="inactives" class="large-block-grid-3">
+                {% for in_user in inactive %}
+                    <li>
+                        <a href="/report/user/{{ in_user.id }},{{ now|date:"n" }}">
+                            {{ in_user.first_name }} {{ in_user.last_name }}
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    <a href="/profile">Powrót</a>
+{% endblock %}

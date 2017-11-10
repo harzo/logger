@@ -1,0 +1,104 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Didact+Gothic);
+
+body {
+	background: #fff;
+	color: #000;
+	font-family: 'Lato', sans-serif;
+	font-size: 15px;
+	font-weight: 300;
+	padding-top: 30px;
+	position: relative;
+}
+
+h1,h2,h3{
+	font-family: 'Lato', sans-serif;
+}
+
+a{
+	font-family: 'Lato', sans-serif;
+	text-decoration: none;
+	font-weight: 300;
+    color: black;
+}
+
+a:hover{
+    color: black;
+	text-decoration: none;
+}
+
+label,.label{
+	font-family: 'Lato', sans-serif;
+	background: none;
+	color: black;
+	cursor: auto;
+}
+
+span{
+	font-family: 'Lato', sans-serif;
+}
+
+.row{
+    max-width: 1200px;
+}
+
+.error{
+    text-align: center;
+    color: red;
+}
+
+.error p{
+    margin: 0;
+}
+
+.success{
+    text-align: center;
+    color: green;
+}
+
+#top{
+    font-size: 30px;
+}
+
+#top a:hover{
+    color: black;
+    border: none;
+}
+
+#atmat {
+	font-family: 'Didact Gothic', sans-serif;
+	font-size: 30px;
+	margin-left: 10px;
+}
+
+#middle{
+    background: #282828;
+    margin: 30px 0;
+    padding: 0 0 60px 0;
+    color: white;
+}
+
+#middle a{
+    color: white;
+}
+
+#middle a:hover{
+    color: white;
+}
+
+#middle label, #middle .label{
+    color: white;
+}
+
+#footer a{
+    color: black;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+#footer a:hover{
+    color: black;
+    font-weight: 400;
+    text-decoration: none;
+    border: none;
+}

@@ -1,0 +1,100 @@
+#welcome {
+	font-size: 18px;
+	font-weight: 300;
+	position: relative;
+	top: 7px;
+	left: 20px;
+}
+
+#name {
+	font-size: 18px;
+	font-weight: 700;
+	position: relative;
+	top: 7px;
+	left: 20px;
+}
+
+#button {
+	width: 100px;
+	height: 34px;
+	border-width: 0px;
+	padding: 5px;
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
+	background: #404040;
+	margin: 20px auto 0;
+	display: block !important;
+	color: #fff;
+}
+
+h3{
+    color: #ff9016;
+    font-weight: 300;
+    margin: 15px 0;
+    font-size: 22px;
+    text-align: center;
+}
+
+#summary .row:first-child a{
+    margin: 0 25px;
+}
+
+#summary label{
+    padding: 0;
+    font-size: 18px;
+    font-weight: 300;
+    margin-left: 20px;
+}
+
+#summary span{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.active-day-link{
+    border: 1px solid #ff9016 !important;
+}
+
+#calendar li{
+    padding: 5px;
+}
+
+#calendar li div{
+    border: 1px solid #595959;
+    padding: 15px 0;
+    text-align: center;
+}
+
+#logs > div > div:not(.active-log) {
+    display: none;
+}
+
+#logs  > div > div > div:first-child > div{
+    margin: 10px 0;
+}
+
+#logs  > div > div > div > div label {
+    margin: 0 10px 0 0;
+}
+
+#logs div[id^=gap-] > div:nth-child(2) > div label,
+#logs div[id^=log-] > div:first-child > div label {
+    float: left;
+}
+
+#calendar div[id^=day-] .dl-hours{
+    color: white;
+    font-weight: 400;
+}
+
+#calendar div[id^=day-] .dl-missing{
+    color: red;
+}
+
+#calendar div[id^=day-] .dl-gap{
+    font-weight: 600;
+}
+
+#presence div[id^=presence-day-]:not(.active-day) {
+    display: none;
+}

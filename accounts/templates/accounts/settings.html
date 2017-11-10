@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% load staticfiles %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'logs/css/logme.css' %}" />
+
+        {% if error %}<p><strong>{{ error }}</strong></p>{% endif %}
+
+        <div class="box">
+            <span id="welcome">Ustawienia</span>
+            <center>
+                INFO
+                <p>
+                    <span>Imię:</span>
+                    <span>{{ user.first_name }}</span>
+                </p>
+                <p>
+                    <span>Nazwisko:</span>
+                    <span>{{ user.last_name }}</span>
+                </p>
+                <p>
+                    <span>Email:</span>
+                    <span>{{ user.email }}</span>
+                </p>
+
+                <form id="loginform" action="{% url 'settings.views.settings_user' %}" method="post">
+                {% csrf_token %}
+                    <p>
+                        <span class="label">Stare hasło:</span>
+                        <span>
+                        {{ form.old_password }}
+                        </span>
+                    </p>
+                    <p>
+                        <span class="label">Nowe hasło:</span>
+                        <span>
+                        {{ form.new_password }}
+                        </span>
+                    </p>
+                    <p>
+                        <span class="label">Potwierdź hasło:</span>
+                        <span>
+                        {{ form.password_conf }}
+                        </span>
+                    </p>
+                    <span id="emptycell"></span><input type="submit" name="submit" id="button" value="Prześlij"/></p>
+                </form>
+            </center>
+        </div>
+        <center>
+            <a href="/profile" id="password">Powrót</a>
+        </center>
+    {% endif %}
+{% endblock %}

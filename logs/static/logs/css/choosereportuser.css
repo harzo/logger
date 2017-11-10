@@ -1,0 +1,40 @@
+#welcome {
+	font-size: 18px;
+	font-weight: 300;
+	position: relative;
+	top: 7px;
+	left: 20px;
+}
+
+.ul-title{
+	font-size: 18px;
+}
+
+#employees,
+#interns{
+    margin: 0;
+    list-style: none;
+
+}
+
+#employees li,
+#interns li{
+    width: 33%;
+    text-align: center;
+}
+
+#employees li a,
+#interns li a{
+	-webkit-transition: border-width 0.1s linear;
+	-moz-transition: border-width 0.1s linear;
+	-o-transition: border-width 0.1s linear;
+	transition: border-width 0.1s linear;
+}
+
+#employees li a:hover,
+#interns li a:hover{
+	border-width: 0px 0px 3px 0px;
+	border-color: #ff9016;
+	border-style: solid;
+	color: white;
+}

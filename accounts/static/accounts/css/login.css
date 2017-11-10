@@ -1,0 +1,57 @@
+#welcome {
+	font-size: 18px;
+	font-weight: 300;
+	position: relative;
+	top: 7px;
+	left: 20px;
+}
+
+#button {
+	width: 100px !important;
+	height: 34px !important;
+	border-width: 0px !important;
+	padding: 5px !important;
+	font-family: 'Lato', sans-serif !important;
+	font-size: 14px !important;
+	background: #404040 !important;
+	margin: 20px auto 0;
+	display: block !important;
+}
+
+#loginform{
+    padding: 30px 0 0 0;
+}
+
+#loginform label{
+    font-size: 18px;
+    font-weight: 300;
+    height: 32px;
+    padding: 2px;
+}
+
+#loginform input {
+	-webkit-transition: border-color,box-shadow 0.30s ease-in-out !important;
+	-moz-transition: border-color,,box-shadow 0.30s ease-in-out !important;
+	-ms-transition: border-color,,box-shadow 0.30s ease-in-out !important;
+	-o-transition: border-color,,box-shadow 0.30s ease-in-out !important;
+	font-family: 'Lato', sans-serif !important;
+	width: 200px !important;
+	border-width: 0px !important;
+	outline: none !important;
+	border-width: 1px !important;
+	border-color: #282828 !important;
+	background: #404040 !important;
+	margin-bottom: 20px !important;
+	color: #fff !important;
+	font-size: 12px !important;
+	padding: 4px !important;
+	display: initial !important;
+	height: 32px;
+}
+
+#loginform input:focus {
+	box-shadow: 0 0 5px #ff9016 !important;
+	border-width: 1px !important;
+	border-color: #ff9016 !important;
+	background: #404040 !important;
+}

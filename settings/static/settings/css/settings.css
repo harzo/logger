@@ -1,0 +1,114 @@
+#welcome {
+	font-size: 18px;
+	font-weight: 300;
+	position: relative;
+	top: 7px;
+	left: 20px;
+}
+
+#button {
+	width: 100px;
+	height: 34px;
+	border-width: 0px;
+	padding: 5px;
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
+	background: #404040;
+	margin: 20px auto 0;
+	display: block !important;
+	color: #fff;
+}
+
+h3{
+    color: #ff9016;
+    font-weight: 300;
+    margin: 15px 0;
+    font-size: 22px;
+}
+
+#passchform span, #infoblock span, #gapaddform span{
+    line-height: 30px;
+}
+
+#passchform label, #passchform .label,
+#infoblock label, #infoblock .label,
+#gapaddform label, #gapaddform .label{
+	font-size: 18px;
+	font-weight: 300;
+	text-align: right;
+	margin: 0 10px 0 0 !important;
+	padding: 4px 0;
+}
+
+#passchform input,
+#gapaddform input{
+	-webkit-transition: border-color,box-shadow 0.30s ease-in-out;
+	-moz-transition: border-color,,box-shadow 0.30s ease-in-out;
+	-ms-transition: border-color,,box-shadow 0.30s ease-in-out;
+	-o-transition: border-color,,box-shadow 0.30s ease-in-out;
+	font-family: 'Lato', sans-serif;
+	height: 32px;
+	width: 230px;
+	border-width: 0px;
+	outline: none;
+	border-width: 1px;
+	border-color: #282828;
+	background: #404040;
+	margin-bottom: 20px;
+	margin-right: 2px;
+	color: #fff;
+	font-size: 12px;
+	padding: 4px;
+	display: table-cell;
+	resize: none;
+}
+
+#passchform input:focus,
+#gapaddform input:focus{
+	box-shadow: 0 0 5px #ff9016;
+	border-width: 1px;
+	border-color: #ff9016;
+	outline: none;
+	background: #404040;
+}
+
+#passchform select,
+#gapaddform select{
+	-webkit-transition: border-color,box-shadow 0.30s ease-in-out;
+	-moz-transition: border-color,,box-shadow 0.30s ease-in-out;
+	-ms-transition: border-color,,box-shadow 0.30s ease-in-out;
+	-o-transition: border-color,,box-shadow 0.30s ease-in-out;
+	font-family: 'Lato', sans-serif;
+	width: auto;
+	min-width: 45px;
+	height: 22px;
+	border-width: 0px;
+    outline: none;
+	border-width: 1px;
+	border-color: #282828;
+	background: #404040;
+	margin: 10px 0;
+	color: #fff;
+	font-size: 12px;
+	padding: 1px;
+	text-align: right;
+}
+
+#passchform select:focus,select:hover,
+#gapaddform select:focus,select:hover{
+	box-shadow: 0 0 5px #ff9016;
+	border-width: 1px;
+	border-color: #ff9016;
+	outline: none;
+	background: #404040;
+}
+
+input[type=submit] {
+	display: table-cell;
+}
+
+input:focus {
+	box-shadow: 0 0 5px #ff9016;
+	border-width: 1px;
+	border-color: #ff9016;
+}
